@@ -9,23 +9,37 @@
 #include <vector>
 
 using namespace std;
-    
 
-template <class T>
-class Que_ue {
+template <typename T>
+class MyQueue {
 private:
     
-    vector<T> vec;
+    vector<T> data;
+    
+    
 public:
-    
-    void push(T data){
-        vec.push_back(data);
+    void push(T val) {
+        data.push_back(val);
+    }
+
+    void pop() {
+        data.erase(data.begin());
     }
     
-    T pop(){
-        return vec.pop_back();
+    void print_vec(){
+        for (int i = 0; i < data.size(); i++) {
+            //i = data[i];
+            //data[i] = i
+            cout << data[i] << ", ";
+        }
+    
     }
+
+    
+
 };
+    
+
 
 template <class T>
 class Quack {
@@ -34,20 +48,77 @@ private:
     vector<T> vec;
 public:
     
-    void push(T data){
+    void push_back(T data){
         vec.push_back(data);
     }
     
-    T pop(){
-        return vec.pop_back();
+    void pop_back(T data){
+        vec.erase(vec.end() - 1);
     }
+    
+    void push_front(T val){
+        vec.insert(vec.begin(), val);
+    }
+    
+    void pop_front(T data){
+        vec.erase(vec.begin());
+    }
+    
+    void print_vec(){
+        for (int i = 0; i < vec.size(); i++) {
+            //i = data[i];
+            //data[i] = i
+            cout << vec[i] << ", ";
+        }
+    
+    }
+    
 };
 
 
 int main() {
     
-    Que_ue<int> U;
+    MyQueue<int> U;
+    
+    U.push(1);
+    U.push(2);
     U.push(3);
+    U.push(4);
+    U.print_vec();
+    cout << endl;
+    
+    U.pop();
+    
+    U.print_vec();
+    cout << endl;
+    
+    cout << endl;
+    cout << endl;
+    
+    Quack<int> U2;
+    U2.push_back(10);
+    U2.push_back(20);
+    U2.push_back(30);
+    U2.push_back(40);
+    U2.print_vec();
+    cout << endl;
+    
+    U2.push_front(5);
+    U2.push_back(45);
+    
+    U2.print_vec();
+    cout << endl;
+    
+    U2.pop_front(5);
+    U2.pop_back(45);
+    
+    U2.print_vec();
+    cout << endl;
+    
+    
+
+    
+    
     
     
 }
