@@ -52,7 +52,7 @@ public:
         vec.push_back(data);
     }
     
-    void pop_back(T data){
+    void pop_back(){
         vec.erase(vec.end() - 1);
     }
     
@@ -60,7 +60,7 @@ public:
         vec.insert(vec.begin(), val);
     }
     
-    void pop_front(T data){
+    void pop_front(){
         vec.erase(vec.begin());
     }
     
@@ -109,8 +109,8 @@ int main() {
     U2.print_vec();
     cout << endl;
     
-    U2.pop_front(5);
-    U2.pop_back(45);
+    U2.pop_front();
+    U2.pop_back();
     
     U2.print_vec();
     cout << endl;
